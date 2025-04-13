@@ -45,6 +45,7 @@ export class EmployeeFormComponent {
     // Check if we are in edit mode
     this.route.params.subscribe(params => {
       const id = params['id'];
+      console.log('Route parameter ID:', id);
       if (id) {
         this.isEditMode = true;
         this.employeeId = +id;
@@ -54,10 +55,13 @@ export class EmployeeFormComponent {
   }
 
   loadEmployeeData(id: number) {
-    const employee = this.employeeService.getEmployeeById(id);
+    console.log('Loading employee data for ID:', id);
+    const employee = this.employeeService.getEmployeeById(+id); // Convert `id` to a number
+    console.log('Loaded employee data:', employee);
     if (employee) {
       this.employeeForm.patchValue(employee);
     } else {
+      console.error('Employee not found, redirecting to home.');
       this.router.navigate(['/']);
     }
   }
@@ -73,7 +77,7 @@ export class EmployeeFormComponent {
       this.employeeService.updateEmployee(updatedEmployee);
     } else {
       console.log('Adding new employee');
-      
+
       // Add new employee
       const newEmployee: Employee = { ...formValue, id: new Date().getTime(), avatar: this.employeeService.getRandomAvatar() };
       this.employeeService.addEmployee(newEmployee);

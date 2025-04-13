@@ -31,6 +31,7 @@ export class EmployeeListComponent {
   }
 
   onEdit(id: number) {
+    console.log('Edit button clicked for employee with ID:', id);
     this.router.navigate(['/edit', id]);
   }
 
