@@ -1,0 +1,63 @@
+.employee-detail-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.employee-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.employee-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.employee-header h4 {
+    margin: 5px 0;
+    font-size: 18px;
+    color: #666;
+}
+
+.employee-avatar {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.employee-avatar img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.employee-details p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.employee-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.employee-actions button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #1976d2;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.employee-actions button:hover {
+    background-color: #145ca6;
+}

@@ -1,0 +1,17 @@
+.employee-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .employee-card {
+    width: 250px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .employee-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  

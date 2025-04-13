@@ -1,0 +1,28 @@
+<div style="text-align: center; margin: 20px;">
+    <button mat-raised-button color="primary" (click)="router.navigate(['/add'])">Add Employee</button>
+  </div>
+  
+  <div class="employee-container">
+    <mat-card *ngFor="let employee of employees" class="employee-card">
+      <img mat-card-image [src]="employee.avatar" alt="Avatar" />
+      <mat-card-content>
+        <h3>{{ employee.name }}</h3>
+        <p><strong>Email:</strong> {{ employee.email }}</p>
+        <p><strong>Company:</strong> {{ employee.company }}</p>
+        <p><strong>Contact:</strong> {{ employee.contact }}</p>
+        <p><strong>Designation:</strong> {{ employee.designation }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-icon-button color="primary" (click)="onView(employee.id)">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-icon-button color="accent" (click)="onEdit(employee.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="onDelete(employee.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  

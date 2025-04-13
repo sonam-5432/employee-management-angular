@@ -1,0 +1,45 @@
+<h2>{{ isEditMode ? 'Edit Employee' : 'Add Employee' }}</h2>
+
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-content>
+      <div class="form-field">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Employee Name" />
+        <!-- <mat-error *ngIf="employeeForm.get('name')?.hasError('required')">Name is required</mat-error> -->
+      </div>
+
+      <div class="form-field">
+        <mat-label>Company</mat-label>
+        <input matInput formControlName="company" placeholder="Company Name" />
+        <!-- <mat-error *ngIf="employeeForm.get('company')?.hasError('required')">Company is required</mat-error> -->
+      </div>
+
+      <div class="form-field">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Email" />
+        <!-- <mat-error *ngIf="employeeForm.get('email')?.hasError('required')">Email is required</mat-error> -->
+        <!-- <mat-error *ngIf="employeeForm.get('email')?.hasError('email')">Please enter a valid email</mat-error> -->
+      </div>
+
+      <div class="form-field">
+        <mat-label>Contact</mat-label>
+        <input matInput formControlName="contact" placeholder="Contact Number" />
+        <!-- <mat-error *ngIf="employeeForm.get('contact')?.hasError('required')">Contact is required</mat-error> -->
+      </div>
+
+      <div class="form-field">
+        <mat-label>Designation</mat-label>
+        <input matInput formControlName="designation" placeholder="Designation" />
+        <!-- <mat-error *ngIf="employeeForm.get('designation')?.hasError('required')">Designation is required</mat-error> -->
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary"
+      >Submit</button>
+      <!-- <button mat-raised-button color="primary" [disabled]="employeeForm.invalid"
+      >Submit</button> -->
+    </mat-card-actions>
+  </mat-card>
+</form>

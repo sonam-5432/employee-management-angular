@@ -1,0 +1,17 @@
+<div  class="employee-detail-container">
+    <div class="employee-header">
+        <h2>{{ employee?.name }}</h2>
+        <h4>{{ employee?.designation }}</h4>
+    </div>
+    <div class="employee-avatar">
+        <img [src]="employee?.avatar" alt="{{ employee?.name }}" />
+    </div>
+    <div class="employee-details">
+        <p><strong>Company:</strong> {{ employee?.company }}</p>
+        <p><strong>Email:</strong> {{ employee?.email }}</p>
+        <p><strong>Contact:</strong> {{ employee?.contact }}</p>
+    </div>
+    <div class="employee-actions">
+        <button (click)="router.navigate(['/'])">Back</button>
+    </div>
+</div>
