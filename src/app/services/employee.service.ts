@@ -25,8 +25,6 @@ export class EmployeeService {
   }
 
   getEmployeeById(id: number): Employee | undefined {
-    console.log('Searching for employee with ID:', id);
-    console.log('Current employees:', this.employees);
     return this.employees.find(employee => employee.id === +id); // Ensure `id` is a number
   }
 

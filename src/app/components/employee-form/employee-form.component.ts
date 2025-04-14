@@ -18,7 +18,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
-    // Removed MatErrorModule
   ],
   templateUrl: './employee-form.component.html',
   styleUrls: ['./employee-form.component.css']
@@ -39,13 +38,13 @@ export class EmployeeFormComponent {
       company: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       contact: ['', [Validators.required]],
-      designation: ['', [Validators.required]]
+      designation: ['', [Validators.required]],
+      avatar: ['']
     });
 
     // Check if we are in edit mode
     this.route.params.subscribe(params => {
       const id = params['id'];
-      console.log('Route parameter ID:', id);
       if (id) {
         this.isEditMode = true;
         this.employeeId = +id;
@@ -55,19 +54,15 @@ export class EmployeeFormComponent {
   }
 
   loadEmployeeData(id: number) {
-    console.log('Loading employee data for ID:', id);
     const employee = this.employeeService.getEmployeeById(+id); // Convert `id` to a number
-    console.log('Loaded employee data:', employee);
     if (employee) {
       this.employeeForm.patchValue(employee);
     } else {
-      console.error('Employee not found, redirecting to home.');
       this.router.navigate(['/']);
     }
   }
 
   onSubmit() {
-    console.log(this.employeeForm.value);
     // if (this.employeeForm.invalid) return;
 
     const formValue = this.employeeForm.value;
@@ -76,8 +71,6 @@ export class EmployeeFormComponent {
       const updatedEmployee: Employee = { ...formValue, id: this.employeeId, avatar: formValue.avatar };
       this.employeeService.updateEmployee(updatedEmployee);
     } else {
-      console.log('Adding new employee');
-
       // Add new employee
       const newEmployee: Employee = { ...formValue, id: new Date().getTime(), avatar: this.employeeService.getRandomAvatar() };
       this.employeeService.addEmployee(newEmployee);
